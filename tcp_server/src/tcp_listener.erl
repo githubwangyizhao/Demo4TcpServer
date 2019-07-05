@@ -51,7 +51,7 @@ init([]) ->
         {active, false}    %% 设置套接字为被动模式。套接字收到的消息被缓存起来。
     ],
     Port = get_app_env(listen_port, ?DEF_PORT),
-    %% 开启一个监听某个端口的套接字
+    %% 开启一个监听某个端口的套接字 
     case gen_tcp:listen(Port, Opts) of
         {ok, ListenSocket} ->
             ?INFO_LOG("listen port: ~p. ", [Port]),
