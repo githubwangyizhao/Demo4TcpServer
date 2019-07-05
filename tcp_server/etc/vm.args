@@ -1,0 +1,6 @@
+-pa ./ebin
+-sname tcp_server
+-setcookie 9EtVu5iIHnTidGUR
+-hidden
+-listen_port 10001
+-eval "tcp_server_app:ensure_start()."

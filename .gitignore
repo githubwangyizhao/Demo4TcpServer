@@ -1,0 +1,9 @@
+
+.idea/
+deps/
+ebin/
+log/
+json/
+.rebar/
+*.dump
+
