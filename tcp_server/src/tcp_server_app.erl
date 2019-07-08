@@ -32,7 +32,6 @@ ensure_deps_start([App | T] = Apps) ->
         {error, Reason} ->
             io:format("start application ~p failed, reason: ~p~n", [App, Reason]);
         _ ->
-            io:format("application ~p start success. ~n", [App]),
             ensure_deps_start(T)
     end.
 

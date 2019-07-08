@@ -6,4 +6,5 @@ log/
 json/
 .rebar/
 *.dump
+*.beam
 

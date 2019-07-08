@@ -71,7 +71,7 @@ handle_event(cast, {socket_ready, Socket}, wait_for_socket, State) ->
     {next_state, wait_for_data, State#state{socket = Socket, addr = IP}, {timeout, ?TIMEOUT, {conn_timeout}}};
 
 handle_event(timeout, {conn_timeout}, wait_for_data, State) ->
-    ?ERROR_LOG("~p Client connection timeout - closing. ", [self()]),
+    ?ERROR_LOG("~p client connection timeout - closing. ", [self()]),
     {stop, normal, State};
 
 handle_event(info, {tcp, Socket, Bin}, wait_for_data, #state{socket = Socket} = State) ->
@@ -81,7 +81,7 @@ handle_event(info, {tcp, Socket, Bin}, wait_for_data, #state{socket = Socket} = 
     {keep_state, State, {timeout, ?TIMEOUT, {conn_timeout}}};
 
 handle_event(info, {tcp_closed, Socket}, _StateName, #state{socket = Socket, addr = Addr} = State) ->
-    ?INFO_LOG("~p Client ~p disconnected. ", [self(), Addr]),
+    ?INFO_LOG("~p client ~p disconnected. ", [self(), Addr]),
     {stop, normal, State};
 
 handle_event(info, _Event, _, State) ->
